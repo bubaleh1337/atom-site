@@ -1,9 +1,9 @@
 {
-  "name": "atom-atyrau-landing",
-  "private": true,
-  "version": "1.0.3",
-  "type": "module",
-  "scripts": {
-    "deploy": "vercel --prod"
-  }
+    "name":  "atom-atyrau-landing",
+    "private":  true,
+    "version":  "1.0.4",
+    "type":  "module",
+    "scripts":  {
+                    "deploy":  "vercel --prod"
+                }
 }
