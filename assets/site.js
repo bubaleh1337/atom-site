@@ -1,0 +1,10 @@
+const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const modal=$('#leadModal'), form=$('#leadForm'), statusEl=$('#formStatus');let startedAt=Date.now();
+function openModal(service=''){if(!modal)return;modal.classList.add('open');document.body.classList.add('modal-open');startedAt=Date.now();const sel=$('#service');if(sel&&service)sel.value=service;setTimeout(()=>$('#name')?.focus(),80)}
+function closeModal(){modal?.classList.remove('open');document.body.classList.remove('modal-open')}
+$$('[data-open-form]').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.service||'')));
+$('[data-close-modal]')?.addEventListener('click',closeModal);modal?.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+const hamb=$('.hamb'), mm=$('.mobile-menu');hamb?.addEventListener('click',()=>{const o=mm.classList.toggle('open');hamb.setAttribute('aria-expanded',String(o))});$$('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+function utm(){const p=new URLSearchParams(location.search),o={};['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k=>{if(p.get(k))o[k]=p.get(k)});return o}
+form?.addEventListener('submit',async e=>{e.preventDefault();statusEl.textContent='';statusEl.className='status';const btn=form.querySelector('button[type=submit]');btn.disabled=true;const fd=new FormData(form);const payload=Object.fromEntries(fd.entries());payload.locale=document.documentElement.lang;payload.pageUrl=location.href;payload.referrer=document.referrer;payload.startedAt=startedAt;Object.assign(payload,utm());
+try{const r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||'Request failed');form.reset();statusEl.textContent=form.dataset.success;statusEl.className='status ok';setTimeout(closeModal,1800)}catch(err){statusEl.textContent=form.dataset.error;statusEl.className='status err'}finally{btn.disabled=false}});
