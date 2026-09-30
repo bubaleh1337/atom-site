@@ -236,3 +236,61 @@ body.portfolio-open{overflow:hidden}
     padding:2px 7px;
   }
 }
+
+/* service-seo-pages-v1.0.11 */
+.service-page{background:#f7f8fc}
+.service-landing-hero{padding:118px 0 82px;background:var(--navy);color:#fff;overflow:hidden;position:relative}
+.service-landing-hero:after{content:"";position:absolute;width:500px;height:500px;right:-180px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(35,75,216,.44),transparent 68%);pointer-events:none}
+.service-breadcrumb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:#aeb9dc;font-size:13px;margin-bottom:34px;position:relative;z-index:2}
+.service-breadcrumb a:hover{color:#fff}
+.service-landing-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center;position:relative;z-index:2}
+.service-landing-copy h1{font-size:clamp(46px,6vw,76px);line-height:.98;letter-spacing:-.05em;margin:16px 0 24px;max-width:780px}
+.service-landing-copy>p{font-size:19px;line-height:1.65;color:#c8d0ee;max-width:680px;margin:0 0 30px}
+.service-landing-actions{display:flex;gap:12px;flex-wrap:wrap}
+.service-landing-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:32px;border:1px solid rgba(255,255,255,.12);box-shadow:0 36px 90px rgba(0,0,0,.34)}
+.service-copy{max-width:1180px}
+.service-info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
+.service-info-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+.service-info-card h3{margin:0 0 9px;color:var(--navy);font-size:20px}
+.service-info-card p{margin:0;color:var(--muted);font-size:15px}
+.service-process-section{background:#eef1f7}
+.service-steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+.service-step{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}
+.service-step>span{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900;margin-bottom:18px}
+.service-step h3{margin:0 0 8px;color:var(--navy);font-size:18px}
+.service-step p{margin:0;color:var(--muted);font-size:14px}
+.service-two-col{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
+.service-contact-box{background:linear-gradient(135deg,#0b1854,#1737b1);color:#fff;border-radius:30px;padding:36px}
+.service-contact-box h2{font-size:32px;line-height:1.08;margin:0 0 12px}
+.service-contact-box p{color:#c9d3ff;margin:0 0 24px}
+.service-phone-link{display:block;margin-top:18px;font-size:20px;font-weight:900}
+.service-related-section{padding-top:0}
+.service-related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+.service-related-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;transition:.2s ease}
+.service-related-card strong{color:var(--navy);font-size:20px}
+.service-related-card span{font-size:28px;color:var(--blue)}
+.service-related-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:transparent}
+.service-contact-section{padding-top:0}
+.service-contact-details{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service-contact-details>div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+.service-contact-details span{display:block;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.service-contact-details a,.service-contact-details p{margin:0;color:var(--navy);font-size:16px;font-weight:800}
+.service h3 a{color:inherit;text-decoration:none}
+.service h3 a:hover{color:var(--blue)}
+@media(max-width:980px){
+  .service-landing-grid,.service-two-col{grid-template-columns:1fr}
+  .service-landing-media{max-width:680px}
+  .service-steps-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .service-landing-hero{padding:104px 0 64px}
+  .service-breadcrumb{margin-bottom:24px}
+  .service-landing-grid{gap:34px}
+  .service-landing-copy h1{font-size:44px}
+  .service-landing-copy>p{font-size:16px}
+  .service-landing-actions{display:grid}
+  .service-landing-actions .btn{width:100%}
+  .service-landing-media img{border-radius:24px}
+  .service-info-grid,.service-steps-grid,.service-related-grid,.service-contact-details{grid-template-columns:1fr}
+  .service-contact-box{padding:28px 24px;border-radius:24px}
+}
