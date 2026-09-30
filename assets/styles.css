@@ -37,3 +37,202 @@ body.portfolio-open{overflow:hidden}
   .portfolio-lightbox-next{right:16px}
   .portfolio-lightbox-caption{padding:0 72px 18px;font-size:14px;flex-direction:column;gap:2px}
 }
+/* portfolio-lightbox-v1.0.10-layout-fix */
+.work:before{content:"⤢"}
+
+.portfolio-lightbox{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100dvh;
+  max-width:none;
+  max-height:none;
+  margin:0;
+  padding:32px;
+  border:0;
+  background:rgba(2,6,23,.96);
+  color:#fff;
+  overflow:hidden;
+}
+.portfolio-lightbox:not([open]){display:none}
+.portfolio-lightbox[open]{display:grid;place-items:center}
+.portfolio-lightbox::backdrop{background:transparent}
+
+.portfolio-lightbox-shell{
+  position:relative;
+  width:min(1120px,100%);
+  height:min(820px,100%);
+  margin:0;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) 64px;
+  gap:0;
+  align-items:stretch;
+  justify-items:stretch;
+  background:#060d29;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 32px 100px rgba(0,0,0,.55);
+}
+
+.portfolio-lightbox-image-wrap{
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px 78px 18px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#07102f,#04091d);
+}
+
+.portfolio-lightbox-image{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+  border-radius:14px;
+  box-shadow:none;
+}
+
+.portfolio-lightbox-caption{
+  position:static;
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:12px 84px;
+  text-align:center;
+  font-weight:800;
+  font-size:15px;
+  background:rgba(255,255,255,.07);
+  border-top:1px solid rgba(255,255,255,.10);
+}
+
+.portfolio-lightbox-title{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.portfolio-lightbox-count{
+  flex:0 0 auto;
+  padding:4px 8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  color:#c9d3f4;
+  font-size:12px;
+  font-weight:800;
+}
+
+.portfolio-lightbox-close,
+.portfolio-lightbox-nav{
+  position:absolute;
+  z-index:5;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(7,17,63,.78);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.30);
+  backdrop-filter:blur(10px);
+  transition:.18s ease;
+}
+
+.portfolio-lightbox-close:hover,
+.portfolio-lightbox-nav:hover{
+  background:rgba(255,255,255,.96);
+  color:var(--navy);
+}
+
+.portfolio-lightbox-close{
+  right:16px;
+  top:16px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:26px;
+  line-height:1;
+}
+
+.portfolio-lightbox-nav{
+  top:calc((100% - 64px)/2);
+  width:46px;
+  height:54px;
+  border-radius:15px;
+  font-size:30px;
+  transform:translateY(-50%);
+}
+
+.portfolio-lightbox-nav:hover{
+  transform:translateY(-50%) scale(1.05);
+}
+
+.portfolio-lightbox-prev{left:16px}
+.portfolio-lightbox-next{right:16px}
+
+@media(max-width:640px){
+  .portfolio-lightbox{
+    padding:0;
+  }
+
+  .portfolio-lightbox-shell{
+    width:100%;
+    height:100%;
+    border:0;
+    border-radius:0;
+    grid-template-rows:minmax(0,1fr) 72px;
+  }
+
+  .portfolio-lightbox-image-wrap{
+    padding:62px 12px 12px;
+  }
+
+  .portfolio-lightbox-image{
+    border-radius:10px;
+  }
+
+  .portfolio-lightbox-close{
+    top:12px;
+    right:12px;
+    width:42px;
+    height:42px;
+  }
+
+  .portfolio-lightbox-nav{
+    top:calc((100% - 72px)/2);
+    width:42px;
+    height:48px;
+    border-radius:14px;
+  }
+
+  .portfolio-lightbox-prev{left:10px}
+  .portfolio-lightbox-next{right:10px}
+
+  .portfolio-lightbox-caption{
+    min-height:72px;
+    padding:10px 58px;
+    gap:6px;
+    flex-direction:column;
+    font-size:13px;
+  }
+
+  .portfolio-lightbox-title{
+    white-space:normal;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+  }
+
+  .portfolio-lightbox-count{
+    padding:2px 7px;
+  }
+}
